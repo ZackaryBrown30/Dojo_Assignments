@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index, Add Book</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'semi_apps/css/style.css' %}">
+</head>
+
+<body>
+
+    <a class='align-right' href="/all_shows">Go Back</a>
+
+    <h1> Add a New Show</h1>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form action="/post" method="POST">
+        {% csrf_token %}
+        <p>Title<br><input type="text" name="title"></p><br>
+
+        <div style="display: inline-block;">
+            <p>Network:<br><input type="text" name="network"></p>
+        </div>
+
+        <div style="display: inline-block;">
+            <p>Release Date:<br><input type="date" name="release"></p>
+        </div>
+        
+        <p>description<br><input type="text" name="description"></p>
+        <br><input type="submit">
+    </form>
+
+
+</body>
+
+</html>

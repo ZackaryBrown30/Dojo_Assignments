@@ -1,0 +1,139 @@
+The HTML files need doctoring. 
+ - Adjust For Loop, Fix the functionality of the A tag to reroute to another html page that 
+ displays this specific Books information. 
+- links to new HTML pages need to be created
+
+post and get likely need to be merged in views.py of forms route.
+
+
+zackary@Zackary-Ubuntu:~$ source Desktop/Dojo_assignments/python_stack/my_environments/newDjango/bin/activate
+(newDjango) zackary@Zackary-Ubuntu:~$ python Desktop/Dojo_assignments/python_stack/django/django_orm/books_authors_template/manage.py shell
+Python 3.7.4 (default, Oct 13 2019, 14:46:54) 
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.9.0 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: firAuth = Authors.objects.get(id = 3)                                   
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-1-dfa54d9718ea> in <module>
+----> 1 firAuth = Authors.objects.get(id = 3)
+
+NameError: name 'Authors' is not defined
+
+In [2]: from apps.book_app.models import *                                      
+
+In [3]: firAuth = Authors.objects.get(id = 3)                                   
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-3-dfa54d9718ea> in <module>
+----> 1 firAuth = Authors.objects.get(id = 3)
+
+NameError: name 'Authors' is not defined
+
+In [4]: firAuth = Author.objects.get(id = 3)                                    
+
+In [5]: trdBook = Books.objects.get(id = 3)                                     
+
+In [6]: firAuth.books.remove(author)                                            
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-6-591b7084784d> in <module>
+----> 1 firAuth.books.remove(author)
+
+NameError: name 'author' is not defined
+
+In [7]: firAuth.books.remove(Author)                                            
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-7-eb5219205910> in <module>
+----> 1 firAuth.books.remove(Author)
+
+~/Desktop/Dojo_assignments/python_stack/my_environments/newDjango/lib/python3.7/site-packages/django/db/models/fields/related_descriptors.py in remove(self, *objs)
+    894                     (opts.app_label, opts.object_name)
+    895                 )
+--> 896             self._remove_items(self.source_field_name, self.target_field_name, *objs)
+    897         remove.alters_data = True
+    898 
+
+~/Desktop/Dojo_assignments/python_stack/my_environments/newDjango/lib/python3.7/site-packages/django/db/models/fields/related_descriptors.py in _remove_items(self, source_field_name, target_field_name, *objs)
+   1089                     old_vals = old_ids
+   1090                 filters = self._build_remove_filters(old_vals)
+-> 1091                 self.through._default_manager.using(db).filter(filters).delete()
+   1092 
+   1093                 signals.m2m_changed.send(
+
+~/Desktop/Dojo_assignments/python_stack/my_environments/newDjango/lib/python3.7/site-packages/django/db/models/query.py in filter(self, *args, **kwargs)
+    792         set.
+    793         """
+--> 794         return self._filter_or_exclude(False, *args, **kwargs)
+    795 
+    796     def exclude(self, *args, **kwargs):
+
+~/Desktop/Dojo_assignments/python_stack/my_environments/newDjango/lib/python3.7/site-packages/django/db/models/query.py in _filter_or_exclude(self, negate, *args, **kwargs)
+    810             clone.query.add_q(~Q(*args, **kwargs))
+    811         else:
+--> 812             clone.query.add_q(Q(*args, **kwargs))
+    813         return clone
+    814 
+
+~/Desktop/Dojo_assignments/python_stack/my_environments/newDjango/lib/python3.7/site-packages/django/db/models/sql/query.py in add_q(self, q_object)
+   1225         existing_inner = set(
+   1226             (a for a in self.alias_map if self.alias_map[a].join_type == INNER))
+-> 1227         clause, _ = self._add_q(q_object, self.used_aliases)
+   1228         if clause:
+   1229             self.where.add(clause, AND)
+
+~/Desktop/Dojo_assignments/python_stack/my_environments/newDjango/lib/python3.7/site-packages/django/db/models/sql/query.py in _add_q(self, q_object, used_aliases, branch_negated, current_negated, allow_joins, split_subq)
+   1245                 child_clause, needed_inner = self._add_q(
+   1246                     child, used_aliases, branch_negated,
+-> 1247                     current_negated, allow_joins, split_subq)
+   1248                 joinpromoter.add_votes(needed_inner)
+   1249             else:
+
+~/Desktop/Dojo_assignments/python_stack/my_environments/newDjango/lib/python3.7/site-packages/django/db/models/sql/query.py in _add_q(self, q_object, used_aliases, branch_negated, current_negated, allow_joins, split_subq)
+   1251                     child, can_reuse=used_aliases, branch_negated=branch_negated,
+   1252                     current_negated=current_negated, connector=connector,
+-> 1253                     allow_joins=allow_joins, split_subq=split_subq,
+   1254                 )
+   1255                 joinpromoter.add_votes(needed_inner)
+
+~/Desktop/Dojo_assignments/python_stack/my_environments/newDjango/lib/python3.7/site-packages/django/db/models/sql/query.py in build_filter(self, filter_expr, branch_negated, current_negated, can_reuse, connector, allow_joins, split_subq)
+   1156             if isinstance(value, Iterator):
+   1157                 value = list(value)
+-> 1158             self.check_related_objects(field, value, opts)
+   1159 
+   1160             # split_exclude() needs to know which joins were generated for the
+
+~/Desktop/Dojo_assignments/python_stack/my_environments/newDjango/lib/python3.7/site-packages/django/db/models/sql/query.py in check_related_objects(self, field, value, opts)
+   1056             elif hasattr(value, '__iter__'):
+   1057                 for v in value:
+-> 1058                     self.check_query_object_type(v, opts, field)
+   1059 
+   1060     def build_lookup(self, lookups, lhs, rhs):
+
+~/Desktop/Dojo_assignments/python_stack/my_environments/newDjango/lib/python3.7/site-packages/django/db/models/sql/query.py in check_query_object_type(self, value, opts, field)
+   1037                 raise ValueError(
+   1038                     'Cannot query "%s": Must be "%s" instance.' %
+-> 1039                     (value, opts.object_name))
+   1040 
+   1041     def check_related_objects(self, field, value, opts):
+
+ValueError: Cannot query "<class 'apps.book_app.models.Author'>": Must be "Books" instance.
+
+In [8]: firAuth.books.remove(trdBook)                                           
+
+In [9]: fifth = Author.objects.get(id=5)                    
+
+In [10]: second = Books.objects.get(id=2)                   
+
+In [11]: second.books.add(fifth)                            
+------------------------------------------------------------
+AttributeError             Traceback (most recent call last)
+<ipython-input-11-2c4b704db8ac> in <module>
+----> 1 second.books.add(fifth)
+
+AttributeError: 'Books' object has no attribute 'books'
+
+In [12]: second.Authors.add(fifth)                          
+
+In [13]:     

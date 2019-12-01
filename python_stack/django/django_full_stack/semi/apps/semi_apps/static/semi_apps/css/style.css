@@ -1,0 +1,13 @@
+.align-right {
+    margin-left: 900px;
+    position: fixed;
+}
+.wider {
+    width: 125px;
+    border: 1px solid black;
+    text-align: center;
+    min-height: 40px;
+}
+.widerer {
+    width: 200px;
+}

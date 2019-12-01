@@ -1,0 +1,24 @@
+.righttable, .leftblock {
+    min-height: 700px;
+    min-width: 450px;
+    display: inline-block;
+    border: 1px solid black;
+    vertical-align: top;
+    margin: 20px;s
+    padding: 30px;
+}
+.righttable {
+    background-color: lightgray;
+}
+.leftblock input{
+    margin: 10px;
+}
+.leftblock h1{
+    text-align: center;
+}
+.display h1 {
+    font-size: x-large;
+}
+.display h2 {
+    font-size: large;
+}

@@ -1,0 +1,39 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - NinjaTest",
+            "request": "launch",
+            "mainClass": "NinjaTest",
+            "projectName": "java_oop"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - WizzardTest",
+            "request": "launch",
+            "mainClass": "WizzardTest",
+            "projectName": "java_oop"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - HumanTest",
+            "request": "launch",
+            "mainClass": "HumanTest",
+            "projectName": "java_oop"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - BatTest",
+            "request": "launch",
+            "mainClass": "BatTest",
+            "projectName": "java_oop"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MammalTest",
+            "request": "launch",
+            "mainClass": "MammalTest",
+            "projectName": "java_oop"
+        }
+    ]
+}

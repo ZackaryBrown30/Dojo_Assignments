@@ -1,0 +1,1 @@
+Initially worked everything from terminal, switched to VS to see how it appiles. 

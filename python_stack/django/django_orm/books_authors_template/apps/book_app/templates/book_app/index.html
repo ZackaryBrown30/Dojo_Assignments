@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index, Add Book</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'book_app/css/style.css' %}">    
+</head>
+<body>
+
+<div class="leftblock">
+    <form action="/" method="POST">
+        {% csrf_token %}	
+        <h1>Add a Book</h1>
+        Title:  <input type="text" name="Title"><br>
+        Description:<input type="text" name="Description"><br>
+        <select name="x">
+            {% for author in all_authors %}
+            <option value="{{author.id}}" >{{author.first_name}}{{author.last_name}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Add">
+    </form>
+</div>
+
+<div class="righttable">
+    <table>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Title</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in all_books %}
+            <tr>
+                <td>{{book.id}}</td>
+                <td>{{book.title}}</td>
+                <td><a {{book.id}} href="/book/{{book.id}}">View</a></td>
+                <!-- THIS LINK NEEDS TO FEED TO THE VIEWS OF GIVEN VALUES SPREAD -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>

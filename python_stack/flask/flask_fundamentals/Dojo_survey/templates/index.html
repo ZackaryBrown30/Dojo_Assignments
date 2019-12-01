@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/route" method="POST">
+        <p>Your Name<input type='text' name='name'></p>
+        <fieldset>
+            <legend>Selecting elements</legend>
+            <p>
+                <label>Dojo Location</label>
+                <select id="myList">
+                    <option value="1">San Jose</option>
+                    <option value="2">Oakland</option>
+                    <option value="3">Seattle</option>
+                    <option value="4">Etc..</option>
+                </select>
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>Selecting elements</legend>
+            <p>
+                <label>Favorite Language</label>
+                <select id="lanList">
+                    <option value="1">Python</option>
+                    <option value="2">Javascript</option>
+                    <option value="3">Eclips</option>
+                    <option value="4">Etc..</option>
+                </select>
+            </p>
+        </fieldset>
+        <p>Comment (Optional):<input type="text" name="comment"></p>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

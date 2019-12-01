@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>View Trip</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'semi_apps/css/style.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <h1>Hello {{request.session.first_name}}! Read about this trip!</h1>
+            <a class='button' href="/trips">Create a new trip!</a>
+            <a class='nav' href="/logout">Logout</a>
+        </div>
+        <h2>{{trip.destination}}</h2>
+        <div class="textbox">
+        <h3>Start Date: {{trip.start_date}}</h3>
+        <h3>End Date: {{trip.end_date}}</h3>
+        <h3>Created On: {{trip.created_at}}</h3>
+        <h3>Last updated: {{trip.updated_at}}</h3>
+        <h3>Plan {{trip.plan}}</h3>
+        <h3>Created by {{trip.user.first_name}}</h3>
+        </div>
+
+
+    </div>
+</body>
+
+</html>

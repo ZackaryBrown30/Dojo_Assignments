@@ -1,0 +1,30 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - StringManipulationTest",
+            "request": "launch",
+            "mainClass": "StringManipulationTest",
+            "projectName": "java_6c936590"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - StringManipulationTest",
+            "request": "launch",
+            "mainClass": "StringManipulation.StringManipulationTest",
+            "projectName": "java_6c936590"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - FizzBuzzTest",
+            "request": "launch",
+            "mainClass": "FizzBuzzTest"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - PythagoreanTest",
+            "request": "launch",
+            "mainClass": "PythagoreanTest"
+        }
+    ]
+}

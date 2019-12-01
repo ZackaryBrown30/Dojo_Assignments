@@ -1,0 +1,1 @@
+/home/zackary/Desktop/Dojo_assignments/python_stack/django/django_intro/Ninja_Gooooold/project_one/project_one/settings.py

@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - BugCatcher",
+            "request": "launch",
+            "mainClass": "BugCatcher"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Exceptions",
+            "request": "launch",
+            "mainClass": "Exceptions"
+        }
+    ]
+}

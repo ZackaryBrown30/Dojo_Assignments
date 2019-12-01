@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'login_app/css/wall_style.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <h1>Success! Welcome, {{request.session.first_name}}</h1>
+            <a class='nav' href="/logout">Logout</a>
+        </div>
+        <div class="jumbotron">
+            <form  action="/post_message/" method="POST">
+                {% csrf_token %}
+                <h2>Post a Message<input type="text" name="message" class="textbox"></h2>
+                <br>
+                <input type="submit" value="Send">
+            </form>
+            <div class="msgs">
+                {% for msg in all_messages reversed %}
+                <h3>Message: 
+                {{msg.user.first_name}}{{" "}}
+                {% for comment in all_comments%}
+                {{.created_at}}</h3>
+                {% endfor %}
+                <div class="textbox">
+                <h3>{{msg.message}}</h3>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <form id="msg-post" method="POST" action="/wall/post_message">
+            {%csrf_token%}
+            <textarea name='msg'></textarea>
+            <input type='submit' value="Post a message">
+
+            
+        </form>
+
+        <!-- {% for msg in all_messages reversed %}    
+        <p>{{msg.message}}</p>
+        <form id="comment-post" method="POST" action="/wall/post_comment">
+            {%csrf_token%}
+            <textarea name='comment'></textarea>
+            <input type='submit' value="Post a comment">        
+        </form>
+        {% for comment in msg.comment.all %}    
+
+    <p>{{comment.comment}}</p>
+        {% endfor %}
+        {% endfor %} -->
+
+
+
+
+
+    </div> 
+</body>
+</html>

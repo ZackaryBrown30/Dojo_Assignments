@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='my_style.css') }}">
+    <title>Checkberboard</title>
+</head>
+<body>
+    {% for i in range (1,81): %}
+        {% if i % 2 == 0 %}
+            <div class="boxes1"></div>
+        {% elif i % 2 == 1 %}
+            <div class="boxes2"></div>
+        {% endif %}
+        {% if i % 9 == 0 %}
+            <br>
+        {% endif %}
+    {% endfor %}
+    <!-- attempting to render a 9 by 9 grid of checkers using an odd number to break each row -->
+</body>
+</html>

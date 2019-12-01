@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'semi_apps/css/style.css' %}">  
+</head>
+<body>
+    <h1>ALL Shows</h1>
+
+    <table style="border: 1px solid black;">
+        <thead>
+            <tr style="font-size: large; font-weight: bold;">
+                <td>ID</td>
+                <td>Title</td>
+                <td>Network</td>
+                <td>Release Date</td>
+                <td>Actions</td>
+            </tr>
+        </thead>
+        <tbody>
+            {%  for i in all_shows %}
+            <tr>
+                <td class="wider">{{i.id}}</td>
+                <td class="wider">{{i.title}}</td>
+                <td class="wider">{{i.network}}</td>
+                <td class="wider">{{i.release_date}}</td>
+                <td class="widerer">
+                    <a href="show/{{i.id}}">View</a>
+                    <a href="update/{{i.id}}">Update</a>
+                    <a href="delete/{{i.id}}">Delete</a>
+                    <!-- ACTION BRONSON -->
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <a style="margin-left: 120px;" href="/">Add a New Show</a>
+</body>
+</html>

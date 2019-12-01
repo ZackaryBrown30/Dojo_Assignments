@@ -1,0 +1,13 @@
+zackary@Zackary-Ubuntu:~$ ls
+Desktop    Dojo_assignments  Music     Public     Videos
+Documents  Downloads         Pictures  Templates
+zackary@Zackary-Ubuntu:~$ cd Desktop/
+zackary@Zackary-Ubuntu:~/Desktop$ ls
+destination  python_stack
+zackary@Zackary-Ubuntu:~/Desktop$ cd python_stack/
+zackary@Zackary-Ubuntu:~/Desktop/python_stack$ ls
+django  flask  my_environments  python
+zackary@Zackary-Ubuntu:~/Desktop/python_stack$ cd django
+zackary@Zackary-Ubuntu:~/Desktop/python_stack/django$ ls
+django_full_stack  django_intro  django_orm
+zackary@Zackary-Ubuntu:~/Desktop/python_stack/django$ 

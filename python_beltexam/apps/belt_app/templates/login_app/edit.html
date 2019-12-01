@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Trip INfo</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'login_app/css/style.css' %}">
+</head>
+
+<body>
+
+    <h1> POPULATE </h1>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form action="/update_action/{{trip.id}}" method="POST">
+        {% csrf_token %}
+
+        <p>Destination<input type="text" value="{{trip.destination}}" name="destination"></p><br>
+
+        <div style="display: inline-block;">
+
+            <p>Start Date:<input type="datetime" value='{{trip.start_date | safe}}' name="start_date"></p>
+
+        </div>
+        <div style="display: inline-block;">
+
+            <p>End Date:<input type="datetime" value='{{trip.end_date | safe}}' name="end_date"></p>
+
+        </div>
+
+        <p>Plan<input type="textbox" value='{{trip.plan}}' name="plan"></p><br>
+            
+        <input type="submit">
+
+    </form>
+
+
+</body>
+
+</html>

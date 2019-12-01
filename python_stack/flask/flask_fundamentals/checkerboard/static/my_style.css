@@ -1,0 +1,11 @@
+.boxes1, .boxes2 {
+    height:150px;
+    width: 150px;
+    display: inline-block;
+}
+.boxes1 {
+    background: black;
+}
+.boxes2 {
+    background: grey;
+}

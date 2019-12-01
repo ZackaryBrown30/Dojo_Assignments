@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GRRRRReat Number Game</title>
+    <style>
+    .boxymcboxypants {
+        width: 320px;
+        height: 320px;
+        display: inline-block; 
+        margin: 0 auto;
+    }
+    </style>
+</head>
+<body>
+    <div style="min-height: 750px; min-width: 900px; background-color: lightgreen; margin: auto; text-align: center;"> 
+        <h1>COMEONE COME ALL WELCOME TO OASIS WONDERWALL!</h1>
+        <h2>The gentleman in grey is thinking of a number between 1 and 100</h2>
+        <h2>Guess well... we hope you guess well....</h2>
+
+        <!-- {% if !number  %}
+            {% break %} -->
+
+
+        {% for i in {input}%}
+            {% if number > i %}
+            <h1 style="background-color: crimson;" class="boxymcboxypants">Too High, the man in grey ejected you <br> from a trap door.</h1>
+            {% if number < i %}
+            <h1 style="background-color: rgb(31, 1, 1);" class="boxymcboxypants">Too Low, the man in grey dropped you <br> into a trap door into the floor.</h1>
+        {% endfor %} 
+
+        <form action="/play" method="POST" style="display: inline-block; border: 1px solid black; padding: 25px; background: grey;">
+            <input type="text" name="input">
+            <input type="submit"></input>
+        </form>
+    </div>
+</body>
+</html>

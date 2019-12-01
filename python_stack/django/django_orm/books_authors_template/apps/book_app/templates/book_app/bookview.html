@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index, Add Book</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'book_app/css/style.css' %}">    
+</head>
+<body>
+    <div class="display">
+        <h1>{{all_books.title}}</h1>
+        <h2>ID: {{all_books.id}}</h2>
+        <h2>Description: {{all_books.description}}</h2>
+
+        <form action="/book/{{all_books.id}}" method="POST">
+            {% csrf_token %}
+            <select name="author_id">
+            {% for author in all_authors %}
+                <option value='{{author.id}}'>{{author.first_name}}{{author.last_name}}</option>
+            {% endfor %}
+            </select>
+            <button type="submit">Add</button>
+        </form>
+        <div>
+            {% for author in all_books.Authors.all %}
+                <p>{{author.first_name}} {{author.last_name}}</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

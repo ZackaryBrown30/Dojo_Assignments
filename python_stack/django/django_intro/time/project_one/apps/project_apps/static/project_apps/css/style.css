@@ -1,0 +1,14 @@
+.containerydoozle {
+    min-height: 100px;
+    text-decoration: double;
+    font-size: 40px;
+    color:paleturquoise;
+    background-color: black;
+    border: inset 30px crimson;
+    text-align: center;
+}
+button {
+    height: 40px;
+    width: 80px;
+    color:palegoldenrod;
+}
