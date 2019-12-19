@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - PuzzleTest",
+            "request": "launch",
+            "mainClass": "PuzzleTest",
+            "projectName": "java_6c936590"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - BasicTest",
+            "request": "launch",
+            "mainClass": "BasicTest",
+            "projectName": "java_6c936590"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - StringManipulationTest",
             "request": "launch",
             "mainClass": "StringManipulationTest",

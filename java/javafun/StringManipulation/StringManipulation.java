@@ -5,7 +5,7 @@ public class StringManipulation {
         String bsvar2 = Str2.trim();
         return bsvar1 + bsvar2;
     }
-    public String getIndexOrNull(String Str3, char flava) {
+    // public String getIndexOrNull(String Str3, char flava) {
 
-    }
+    // }
 }
