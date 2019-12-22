@@ -14,5 +14,6 @@ function mma(arr) {
   }
   avg = sum / arr.length;  
   console.log([max,min,avg])
+  return max,min,avg;
 }
 mma ([-1,2,-1,9])
