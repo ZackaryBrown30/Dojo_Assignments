@@ -1,3 +1,4 @@
+//no Redunencies 
 
 var tigger = {character: "Tigger"};
 tigger.north = pooh.south;
