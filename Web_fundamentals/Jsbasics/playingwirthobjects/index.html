@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <title>New item</title>
+    <script>
+     $(document).ready(function() {
+         console.log("ready!");
+
+        $.get("https://pokeapi.co/api/v2/pokemon/kangaskhan", function(res) {
+            console.log(res);
+            
+                $("#icon").click.function() {
+                    .append(this)
+                }
+        })
+     });
+    </script> -->
+</head>
+
+
+<body>
+    <script>
+        var users = [{name: "Michael", age:37}, {name: "John", age:30}, {name: "David", age:27}];
+
+        console.log(users[1].age);
+        console.log(users[0].name);
+
+        for (var i = 0; i <users.length ; i++) {
+            console.log(users[i]['name'] , users[i]['age'])
+            console.log(users[i].name , users[i].age)
+        }
+
+    </script>
+
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+/*CSS reset settings here*/
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+   }
+#container {
+    width: 500px;
+    min-height: 600px;
+    background-color: rgb(233, 196, 201);
+    padding-bottom:5px;
+    padding-right:10px;
+    padding-left:10px;
+    padding-top:15px;
+    display: inline-block;
+}
+
+#info{
+    position: fixed; 
+    text-align: center;
+    left: 550px; 
+    top: 100px;
+    min-width:350px;
+    min-height: 750px;
+    display:inline-block;
+    outline: 10px red;
+    vertical-align: top;
+    background-image: linear-gradient(white,pink);
+    color:black;
+}
+h2 {
+    font-weight: bolder;
+    font-size: larger;
+}
