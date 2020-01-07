@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <script>
+      $(document).ready(() => {
+        $.get(
+          "http://api.bart.gov/api/etd.aspx?cmd=etd&orig=19th&key=MW9S-E7SL-26DU-VV8V&json=y",
+          data => {
+            var station = data.root.station[0];
+            //console.log(data.root.station[0].etd);
+            //Looping through lines to display
+            for (line of station.etd) {
+              line.display = function() {
+                var result = `<div class="col-sm-4"><div class='card'><div class='card-body'><h3>${this.destination}</h3>`;
+                for (train of this.estimate) {
+                  result += train.display();
+                }
+                result += "</div></div></div>";
+                return result;
+              };
+              for (train of line.estimate) {
+                train.display = function() {
+                  return `<p style='background-color:${this.color}'>Platform ${this.platform} - ${this.length} cars : ${this.minutes}</p>`;
+                };
+              }
+            }
+            station.display = function() {
+              var result = `<h1>${this.name}</h1><div class="row">`;
+              for (line of this.etd) {
+                result += line.display();
+              }
+              result += "</div>";
+              return result;
+            };
+            $("#station").html(station.display());
+          }
+        );
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container" id="station"></div>
+  </body>
+</html>
