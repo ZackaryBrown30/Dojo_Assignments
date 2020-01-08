@@ -152,3 +152,15 @@ printsToBeExecuted.forEach(f => f());
 </script>
 
 source = https://www.deadcoderising.com/2017-04-11-es6-var-let-and-const-the-battle-between-function-scope-and-block-scope/
+
+<script>
+See Global timeout functions
+setTimeout()
+
+Syntax
+var timeoutID = scope.setTimeout(function[, delay, arg1, arg2, ...]);
+-delay optional if not assigned, set to 0 and run immediately.
+- args are optional as well and this function sees varied use. 
+
+!!!!
+setTimeout(); this value can be passed to clearTimeout() to cancel the timeout.
