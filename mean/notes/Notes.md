@@ -162,5 +162,4 @@ var timeoutID = scope.setTimeout(function[, delay, arg1, arg2, ...]);
 -delay optional if not assigned, set to 0 and run immediately.
 - args are optional as well and this function sees varied use. 
 
-!!!!
 setTimeout(); this value can be passed to clearTimeout() to cancel the timeout.
