@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // GIVEN
+      // console.log(example);
+      // var example = "I'm the example!";
+      // AFTER HOISTING BY THE INTERPRETER
+      var example;
+      console.log(example); // logs undefined
+      example = "I'm the example!";
+
+      //ANSWER UNDEFINED THEN STRING WITH ERROR
+
+      console.log(example);
+      let example = "I'm the example!";
+
+      // ERROR DOESNT SEE EXAMPLE
+
+      console.log(hello);
+      var hello = "world";
+
+      // UNDEFINED I DONT UNDER STAND HOW ONE EXAMPLE ATTEMPTEDTO PRINT BUT DIDNT THEN THIS IS JUST UNDEFINED I WOULD EXPECT ALL TO BE UNDEFINED
+      var needle = "haystack";
+      test();
+      function test() {
+        var needle = "magnet";
+        console.log(needle);
+      }
+      //MAGNET LOGGED CRAZY BUT THE FUNCTION ROSE ABOVE ITS CALL
+
+      var brendan = "super cool";
+      function print() {
+        brendan = "only okay";
+        console.log(brendan);
+      }
+      console.log(brendan);
+
+      //NEVER CALLED THE FUNCTION
+
+      var food = "chicken";
+      console.log(food);
+      eat();
+      function eat() {
+        food = "half-chicken";
+        console.log(food);
+        var food = "gone";
+      }
+
+      // VM26403:2 chicken
+      // VM26403:6 half-chicken
+      // undefined
+    </script>
+  </body>
+</html>
