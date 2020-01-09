@@ -9,9 +9,9 @@
   </head>
   <body>
     <script>
-      $(document).ready(function() {
+      $(document).ready(() => {
         var gitdata;
-        $.get("https://api.github.com/users/ZackaryBrown30", function(data) {
+        $.get("https://api.github.com/users/ZackaryBrown30", data => {
           console.log("Zacks login is ", data.login);
         });
       });

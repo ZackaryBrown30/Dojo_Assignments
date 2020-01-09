@@ -1,0 +1,27 @@
+
+results: Array(4)
+0: 
+    {category: "Vehicles", 
+        type: "multiple", 
+        difficulty: "medium", 
+        question: "Which of the following passenger jets is the longest?", 
+        correct_answer: "Boeing 747-8", 
+        …}
+1: 
+    {category: "Vehicles", 
+        type: "multiple", 
+        difficulty: "medium", 
+        question: "Which of the following car models has been badge-engineered (rebadged) the most?", correct_answer: "Isuzu Trooper", 
+        …}
+2: 
+    {category: "Vehicles", 
+        type: "multiple", 
+        difficulty: "hard", 
+        question: "How much horsepower is produced by the SD40-2 Locomotive?", 
+        correct_answer: "3,000", …}
+3: 
+    {category: "Vehicles", 
+        type: "boolean", 
+        difficulty: "medium", 
+        question: "Bugatti was an Italian car manufacturer.", 
+        correct_answer: "False", …}
