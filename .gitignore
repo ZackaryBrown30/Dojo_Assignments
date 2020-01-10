@@ -36,6 +36,12 @@
 ehthumbs.db
 Thumbs.db
 
+<<<<<<< HEAD
+/node_modules
+*node_modules
+# unsure of which is best yet #
+=======
 *node_modules
 node_modules/
 package.json
+>>>>>>> 5fe9bb5c72ee488e3b42f984b1a3678e8f1df65a
