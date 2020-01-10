@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // GIVEN
+      // console.log(example);
+      // var example = "I'm the example!";
+      // AFTER HOISTING BY THE INTERPRETER
+      var example;
+      console.log(example); // logs undefined
+      example = "I'm the example!";
+
+      //ANSWER UNDEFINED THEN STRING WITH ERROR
+
+      let example = "I'm the example!";
+      console.log(example);
+
+      // ERROR DOESNT SEE EXAMPLE
+
+      var hello = "world";
+      console.log(hello);
+
+      // UNDEFINED I DONT UNDER STAND HOW ONE EXAMPLE ATTEMPTEDTO PRINT BUT DIDNT THEN THIS IS JUST UNDEFINED I WOULD EXPECT ALL TO BE UNDEFINED
+      var needle = "haystack";
+      function test() {
+        var needle = "magnet";
+        console.log(needle);
+        test();
+      }
+      //MAGNET LOGGED CRAZY BUT THE FUNCTION ROSE ABOVE ITS CALL
+
+      var brendan = "super cool";
+      function print() {
+        brendan = "only okay";
+        console.log(brendan);
+      }
+      console.log(brendan);
+      // but should log super cool.
+      //NEVER CALLED THE FUNCTION
+
+      var food = "chicken";
+      function eat() {
+        food = "half-chicken";
+        console.log(food);
+        var food = "gone";
+      }
+      console.log(food); // loggs chicken
+      eat(); // loggs half-chicken
+
+      // VM26403:2 chicken
+      // VM26403:6 half-chicken
+      // undefined
+
+      //Mine
+      var mean = function() {
+        var food = "fish";
+        food = "chicken";
+        console.log(food);
+        console.log(food);
+      };
+      mean();
+      console.log(food);
+      console.log(food);
+      //Theirs
+
+      mean();
+      console.log(food);
+      var mean = function() {
+        food = "chicken";
+        console.log(food);
+        var food = "fish";
+        console.log(food);
+      };
+      console.log(food);
+    </script>
+  </body>
+</html>

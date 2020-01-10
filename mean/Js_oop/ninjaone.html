@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Define the object constructor
+      function Ninja(name, health = 100) {
+        this.name = name;
+        var speed = 3;
+        var strength = 3;
+        this.health = health;
+
+        this.sayName = () => {
+          console.log(this.name);
+        };
+
+        this.showStatus = () => {
+          console.log(this.name + this.strength + this.speed + this.health);
+        };
+
+        this.drinkSake = () => {
+          this.health += 10;
+        };
+        this.punch = target => {
+          target.health -= 5;
+        };
+      }
+
+      var ninjaMan5000 = new Ninja("Zack");
+      ninjaMan5000.drinkSake();
+      ninjaMan5000.showStatus();
+
+      var ninja1 = new Ninja("Hyabusa");
+      ninja1.sayName();
+      // -> "My ninja name is Hyabusa!"
+      ninja1.showStatus();
+      // -> "Name: Hayabusa, Health: 100, Speed: 3, Strength: 3"
+    </script>
+  </body>
+</html>

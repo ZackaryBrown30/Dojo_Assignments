@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Ninja {
+        constructor(name) {
+          this.name = name;
+          this.speed = 3;
+          this.strength = 3;
+          this.health = 100;
+        }
+        sayName() {
+          console.log(`my namw is ${this.name}`);
+        }
+        showStats() {
+          console.log(
+            `${this.name}'s strength is ${this.strength}, speed is ${this.speed}, and health is ${this.name}`
+          );
+        }
+        drinkSake() {
+          this.health += 10;
+        }
+      }
+      //___________________________________________________________________
+
+      class Sensei extends Ninja {
+        constructor(name) {
+          super(name);
+          this.health += 100;
+          this.speed += 7;
+          this.strength += 7;
+          this.wisdom = 10;
+          //   this.name = name;
+          //   var speed = 10;
+          //   var strength = 10;
+          //   var wisdom = 10;
+          //   var health = 200;
+        }
+        speakWisdom() {
+          super.drinkSake();
+          console.log("a wise man fears the anger of a gentle man");
+        }
+      }
+      const monssoirNinja = new Ninja("brokski");
+      const superSensei = new Sensei("Master Splinter");
+
+      superSensei.speakWisdom();
+      superSensei.showStats();
+      monssoirNinja.sayName();
+      monssoirNinja.showStats();
+      monssoirNinja.drinkSake();
+      monssoirNinja.showStats();
+
+      superSensei.sayName();
+      superSensei.showStats();
+      superSensei.drinkSake();
+      superSensei.showStats();
+      superSensei.drinkSake();
+      superSensei.showStats();
+      superSensei.speakWisdom();
+    </script>
+  </body>
+</html>

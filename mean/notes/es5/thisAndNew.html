@@ -1,0 +1,67 @@
+"Remember: this and new go together. If you're using this in your Constructor,
+you must create new instances with new!"
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- this. and new are to be used together.
+        
+       they simplify class emulation in javascript and the new call tells the code that there is inherentyly a constructor.
+        
+        example */ -->
+    <script>
+      function personConstructor(name, age) {
+        this.name = name;
+        this.age = age;
+        this.greet = function() {
+          console.log(
+            "Hello my name is " +
+              this.name +
+              " and I am " +
+              this.age +
+              " years old!"
+          );
+        };
+      }
+      var emily = new personConstructor("Emily", 22);
+      // using this & new, we can now refer to the 'name' attribute of our instance!
+      emily.greet = function() {
+        console.log("My name is " + this.name + " and I'm the coolest ever!");
+      };
+
+      //   !!!!! Big ass AHA moment  !!!
+      //   Embeded functions (within objects or functions) can be called by instantiating a new version using the function as a constructor, then using dot notation you may call upon the function and it runs like a method.
+
+      function Person(name, age) {
+        var privateVariable = "This variable is private";
+        var privateMethod = function() {
+          console.log(this);
+        };
+        this.name = name;
+        this.age = age;
+        this.greet = function() {
+          console.log(
+            "Hello my name is " +
+              this.name +
+              " and I am " +
+              this.age +
+              " years old!"
+          );
+          // we can access our attributes within the constructor!
+          console.log("Also my privateVariable says: " + privateVariable);
+          // we can access our methods within the constructor!
+          privateMethod();
+        };
+      }
+      var joe = new Person("Joe", 23);
+      joe.greet();
+
+      // ___------------_--------  --- -  - ----- - --- --- --- - - - - = =- = = == = = == -= =- --------
+    </script>
+  </body>
+</html>

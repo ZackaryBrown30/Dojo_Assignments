@@ -24,13 +24,21 @@ let users = {
     { first_name: "Gordon", last_name: "Poe" }
   ]
 };
-
-console.log("Employees");
-for (var i = 0; i < users.employees.first_name; i++) {
-  console.log(i + first_name + " , " + last_name + users.length);
-}
-
-console.log("Managers");
-for (var i = 0; i < users.managers.first_name; i++) {
-  console.log(i + first_name + " , " + last_name + "-" + users.length);
+function staff(dic) {
+  for (staff in users) {
+    console.log(staff.toUppercase());
+    for (var i = 0; i < users[staff].length; i++) {
+      var charCount =
+        users[staff][i].first_name.length + users[staff][i].last_name.length;
+      console.log(
+        [i] +
+          " - " +
+          users[staff][i][first_name] +
+          " , " +
+          users[staff][i][last_name] +
+          " - " +
+          charCount
+      );
+    }
+  }
 }

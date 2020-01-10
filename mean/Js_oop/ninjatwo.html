@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Define the object constructor
+      function Ninja(name, health = 100) {
+        this.name = name;
+        var speed = 3;
+        var strength = 3;
+        this.health = health;
+
+        this.sayName = () => {
+          console.log(this.name);
+        };
+
+        this.showStatus = () => {
+          console.log(this.name + this.strength + this.speed + this.health);
+        };
+
+        this.drinkSake = () => {
+          this.health += 10;
+        };
+        this.punch = function(target) {
+          if (target instanceof Ninja) {
+            target.health -= 5;
+            console.log(
+              this.name + " punched " + target.name + "for five health"
+            );
+          } else {
+            console.log("An opponent doesn't exist.");
+          }
+        };
+        this.kick = function(target) {
+          var damage = 15 * strength;
+          target.health -= damage;
+          console.log(
+            this.name +
+              "Kicked" +
+              target.name +
+              "right in the TEETH, for " +
+              damage +
+              " health. Do they win the strength saving throw or are they now PRONE?!?!"
+          );
+        };
+      }
+
+      var ninjaMan5000 = new Ninja("Zack");
+      ninjaMan5000.drinkSake();
+      ninjaMan5000.showStatus();
+
+      var ninja1 = new Ninja("Hyabusa");
+      ninja1.sayName();
+      ninjaMan5000.punch(ninja1);
+      // -> "My ninja name is Hyabusa!"
+      ninja1.showStatus();
+      // -> "Name: Hayabusa, Health: 100, Speed: 3, Strength: 3"
+      ninja1.kick(ninjaMan5000);
+    </script>
+  </body>
+</html>
