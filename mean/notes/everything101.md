@@ -30,3 +30,10 @@ POST ROUTE
 app.post('/users', (req, res) => {
     res.redirect('/');
 });
+
+____________ ORRR ______________
+
+app.post('/users', (req, res) => {
+    console.log(req.body) 
+    res.redirect('/')
+});
