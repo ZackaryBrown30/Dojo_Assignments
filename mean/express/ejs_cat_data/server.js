@@ -25,7 +25,9 @@ app.get("/users", (req, res) => {
 
 app.get("/cats", (req, res) => {
   var Kats = [
-    { name: 1, image: "static/images/cats/cat1.jpg", fav_food: "Salmon" },
+    { name: 1, 
+      image: "static/images/cats/cat1.jpg", 
+      fav_food: "Salmon" },
     {
       name: 2,
       image: "static/images/cats/cat2.jpg",
