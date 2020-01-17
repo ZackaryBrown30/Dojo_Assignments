@@ -8,9 +8,8 @@ app.use(flash());
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(__dirname + "/static"));
-app.use(
-  session({
+app.use(express.static(__dirname + "."));
+app.use(session({
     secret: "keyboardkitteh",
     resave: false,
     saveUninitialized: true,
@@ -34,7 +33,7 @@ app.get("/", (req, res) => {
 
 const Quote = mongoose.model("Quote", QuoteSchema);
 
-app.post("/quotes", (req, res) => {
+app.post("/posty", (req, res) => {
   const quoteData = new Quote(req.body);
   quoteData
     .save()
@@ -50,8 +49,8 @@ app.post("/quotes", (req, res) => {
 
 app.get("/quotes", (req, res) => {
   Quote.find()
-    .sort("-createdAt")
-    .then(data => res.render("quotes", { Quote: data }, console.log(Quote)))
+    // .sort("-createdAt")
+    .then(data => res.render("quotes", { Quotes : data }))
     .catch(err => res.json(err));
 });
 

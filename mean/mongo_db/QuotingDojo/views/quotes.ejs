@@ -16,17 +16,17 @@
     <div class="container">
       <div class="card">
         <h1 class="card-title">Some Awesome Quotes</h1>
-        <% for (quote in Quotes) {{ %>
+        <% for (quote of Quotes) { %>
         <div class="card-body">
           <h2 class="card-text text-align-left text-secondary">
             <%= quote.quote %>
           </h2>
           <h2 class="card-text text-align-right text-primary">
-            <%= quote.name + "at" quote.timestamp %>
+            <%= quote.name + "at" + quote.timestamp %>
           </h2>
+          <% } %>
         </div>
       </div>
-      <% }} %>
     </div>
   </body>
 </html>
