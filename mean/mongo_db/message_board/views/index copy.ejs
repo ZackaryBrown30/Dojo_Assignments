@@ -13,15 +13,8 @@
     <title>Document</title>
   </head>
   <body>
-    <style>
-      * {
-        margin: 10px;
-        border-radius: 10;
-      }
-    </style>
     <div class="container bg-secondary border-warning border-bottom mt-15">
       <h1 class="display-1">The Dojo Message Board</h1>
-
       <form action="/msg/" method="post">
         <div class="form-group">
           <label for="_name">Name:</label>
@@ -31,29 +24,32 @@
           <label for="my-textarea">Message</label>
           <textarea
             id="my-textarea"
-            class="form-control mb-1"
+            class="form-control"
             name="message"
             rows="3"
           ></textarea>
-          <button class="btn btn-info" type="submit">
-            Send
-          </button>
         </div>
       </form>
 
       <div class="list-group">
+        <% if (posts) { %> <% for message of posts { %>
         <a
           href="#"
           class="list-group-item list-group-item-action flex-column align-items-start 
 				active"
         >
+          <!-- if i was to implement active hilighting when the user was signed in -->
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">Name: <%= posts.name %></h5>
           </div>
           <p class="mb-1"><%= posts.message %></p>
-
-          <small><%= posts.name %></small>
+          <% if (posts.comment) { %>
+          <small><%= posts.comment.name %></small>
+          <small><%= posts.comment.comment %></small>
+          <%}%>
         </a>
+        <%}%> <%}%>
+
         <a
           href="#"
           class="list-group-item list-group-item-action flex-column align-items-start"
