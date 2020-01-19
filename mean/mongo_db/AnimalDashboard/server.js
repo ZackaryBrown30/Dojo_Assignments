@@ -15,7 +15,7 @@ app.use(flash());
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(__dirname + "."));
+app.use(express.static(__dirname + "/static"));
 app.use(session({
     secret: "keyboardkitteh",
     resave: false,
@@ -27,29 +27,29 @@ app.use(session({
 
 mongoose.connect("mongodb://localhost/Animals", { useNewUrlParser: true });
 const AnimalSchema = new mongoose.Schema({
-    species: String,
-    name: String,
-    age: Date,
-    cuteness: Number
+  species: String,
+  name: String,
+  age: Number,
+  cuteness: Number
 });
 // INTERFACE FOR USER DATABASE DATA ABOVE
 const Animal = mongoose.model("Animal", AnimalSchema);
 
 app.get("/", (req, res) => {
   Animal.find()
-    .then(data => res.render("index", { animals: data }))
-    .catch(err => res.json(err));
+  .then(data => res.render("index", { animals: data }))
+  .catch(err => res.json(err));
 });
 
-app.get('/animal/:id', (req, res) => {
-    Animal.findOne({_id: req.param.id})
-        .then(data => res.render('individual', { animal: data}))
-        .catch(err => res.json(err));
+app.get('/animal/:name', (req, res) => {
+  Animal.findOne({_id: req.params.name})
+  .then(data => res.render('individual', { animal: data}))
+  .catch(err => res.json(err));
 });
 
 app.get("/button", (req, res) => {
-    res.render('new')
-  });
+  res.render('new')
+});
 
 app.post("/animal", (req, res) => {
   const animal = new Animal();
@@ -58,17 +58,22 @@ app.post("/animal", (req, res) => {
   animal.cuteness = req.body.cuteness;
   animal.species = req.body.species;
   animal
-    .save()
-    .then(newAnimalData =>  res.redirect('/'), console.log("animal created: ", newAnimalData))
-    .catch(err => {
-        console.log("We have an error!", err);
-        for (var key in err.errors) {
-          req.flash("quote", err.errors[key].message);
-        }
-        res.redirect("/");
-      });
+  .save()
+  .then(data =>  res.redirect('/'))
+  .catch(err => {
+    console.log("We have an error!", err);
+    for (var key in err.errors) {
+      req.flash("quote", err.errors[key].message);
+    }
+    res.redirect("/");
+  });
 });
 
+app.get('/destroy/:_id', (req, res) => {
+  Animal.remove({_id: req.params._id})
+    .then(data => {res.redirect("/")})
+    .catch(err => res.json(err));
+});
 
 
 app.listen(8000, () => console.log("listening on port 8000"));

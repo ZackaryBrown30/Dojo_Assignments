@@ -10,10 +10,13 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
   </head>
   <body>
-    <div class="container">
+    <div class="containers container mt-10">
+      <div>
         <% if (animals) { %>
         <table class="table table-striped table-dark">
             <thead>
@@ -31,12 +34,16 @@
                         <td><%= name.species %></td>
                         <td><%= name.age %></td>
                         <td><%= name.cuteness %></td>
+                        <td> <a href="/destroy/<%= name._id %>"><button class="btn">
+                            <i class="fa text-light fa-trash"></i> <small class="text-light">
+                              Destroy </small></button></a> </td>
                     </tr>
                     <% } %>
                     </tbody>
                 </table>
         <% } %>
         <a class="btn btn-dark" href="/button">New Animal</a>
+      </div>
     </div>
   </body>
 </html>
