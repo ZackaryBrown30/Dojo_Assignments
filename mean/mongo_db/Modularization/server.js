@@ -19,14 +19,6 @@ app.use(
 );
 
 mongoose.connect("mongodb://localhost/Animals", { useNewUrlParser: true });
-const AnimalSchema = new mongoose.Schema({
-  species: String,
-  name: String,
-  age: Number,
-  cuteness: Number
-});
-
-const Animal = mongoose.model("Animal", AnimalSchema);
 
 require("./server/config/mongoose.js");
 require("./server/config/routes.js")(app);
