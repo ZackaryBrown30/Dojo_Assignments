@@ -39,6 +39,28 @@ const UserSchema = new mongoose.Schema(
 const Message = mongoose.model("Message", UserSchema);
 const Comment = mongoose.model("Comment", CommentSchema);
 
+// Use the session middleware
+app.use(session({ secret: "keyboard cat", cookie: { maxAge: 60000 } }));
+
+// Access the session as req.session
+/*
+app.get("/", function(req, res, next) {
+  if (req.session.views) {
+    req.session.views++;
+    res.setHeader("Content-Type", "text/html");
+    res.write("<p>views: " + req.session.views + "</p>");
+    res.write("<p>expires in: " + req.session.cookie.maxAge / 1000 + "s</p>");
+    Message.find()
+      .then(data => res.render("index", { posts: data }))
+      .catch(err => res.json(err));
+  } else {
+    req.session.views = 1;
+    Message.find()
+      .then(data => res.render("index", { posts: data }))
+      .catch(err => res.json(err));
+  }
+}); */
+
 app.get("/", (req, res) => {
   Message.find()
     .then(data => res.render("index", { posts: data }))
