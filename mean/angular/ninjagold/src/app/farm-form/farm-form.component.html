@@ -1,0 +1,49 @@
+<p>farm-form works!</p>
+
+<div class="card">
+    <h1>Gold Count:</h1>
+    <h1>{{Count}}</h1>
+</div>
+
+_____________________________________________________
+
+<div>
+    <h1 class="display-3">Farm</h1>
+    <small>earns 2-5 gold</small>
+
+    <label for="farm">Farm!</label>
+    <input (click)="clickFarm()" value="gold" type="button" id="farm">
+
+</div>
+
+<div>
+    <h1 class="display-3">cave</h1>
+    <small>earns 5-10 gold</small>
+
+    <label for="cave">Cave</label>
+    <input (click)="clickCave()" value="gold" type="button" id="cave">
+
+</div>
+
+<div>
+    <h1 class="display-3">Casino</h1>
+    <small>earn or loose up to 100 gold!</small>
+
+    <label for="casino">Casino</label>
+    <input (click)="clickCasino()" value="gold" type="button" id="casino">
+
+</div>
+
+<div>
+    <h1 class="display-3">House</h1>
+    <small>earns 7-15 gold</small>
+
+    <label for="house">House</label>
+    <input value="gold" type="button" id="house">
+
+</div>
+_____________________________________________________
+
+<div *ngFor=" let activity of activityLog" class="card">
+    <p>{{activity}}</p>
+</div>
