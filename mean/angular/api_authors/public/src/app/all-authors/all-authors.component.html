@@ -1,0 +1,25 @@
+<p>all-authors works!</p>
+
+<a [routerLink]="['/new']" routerLinkActive="router-link-active"></a>
+<a [routerLink]="['/edit', authorID]" routerLinkActive="router-link-active"></a>
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Author</th>
+      <th scope="col">Actions available</th>
+    </tr>
+  </thead>
+
+  <tbody *ngIf="allAuthors">
+    <tr *ngFor="let author of allAuthors">
+      <td>{{ author.name }}</td>
+      <td>
+        <button class="btn btn-dark" [routerLink]="['/edit' + author._id]">
+          Edit
+        </button>
+        <button>Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

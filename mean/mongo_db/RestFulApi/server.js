@@ -5,24 +5,24 @@ const flash = require("express-flash");
 const session = require("express-session");
 
 app.use(flash());
-app.use(express.static( __dirname + '/public/dist/public' ));
+app.use(express.static(__dirname + "/public/dist/public"));
 app.use(
-    express.urlencoded({
-        extended: true
-    })
+  express.urlencoded({
+    extended: true
+  })
 );
 app.use(
-    session({
-        secret: "keyboardkitteh",
-        resave: false,
-        saveUninitialized: true,
-        cookie: {
-            maxAge: 60000
-        }
-    })
+  session({
+    secret: "keyboardkitteh",
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      maxAge: 60000
+    }
+  })
 );
 mongoose.connect("mongodb://localhost/tasks_db", {
-    useNewUrlParser: true
+  useNewUrlParser: true
 });
 require("./server/config/mongoose.js");
 require("./server/config/routes.js")(app);
