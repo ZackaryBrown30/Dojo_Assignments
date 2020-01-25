@@ -11,11 +11,11 @@
     </tr>
   </thead>
 
-  <tbody *ngIf="allAuthors">
+  <tbody *ngIf="allAuthors.length > 0">
     <tr *ngFor="let author of allAuthors">
       <td>{{ author.name }}</td>
       <td>
-        <button class="btn btn-dark" [routerLink]="['/edit' + author._id]">
+        <button routerLinkActive="router-link-active"   class="btn btn-dark" [routerLink]="['/edit' + author._id]">
           Edit
         </button>
         <button>Delete</button>

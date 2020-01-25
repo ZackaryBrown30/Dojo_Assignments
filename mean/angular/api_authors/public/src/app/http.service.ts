@@ -13,6 +13,9 @@ export class HttpService {
   }
   deleteAuthor(authorId) {
     return this._http.delete("/api/authors/" + authorId);
+  }  
+  getOneAuthor(authorId) {
+    return this._http.get("/api/authors/" + authorId);
   }
   updateAuthor(authorToUpdate) {
     return this._http.put("/api/authors/" + authorToUpdate._id, authorToUpdate);

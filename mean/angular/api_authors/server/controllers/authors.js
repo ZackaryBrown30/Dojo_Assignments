@@ -16,8 +16,16 @@ module.exports = {
       })
       .catch(err => res.json({ errors: err }));
   },
+  getOneAuthor(req, res) {
+    Author.findById(req.params.authorId)
+      .then(Author => {
+        console.log(author);
+        res.json({ author: author });
+      })
+      .catch(err => res.json({ errors: err }));
+  },
   delete(req, res) {
-    Author.findByIdAndDelete(req.params.authId)
+    Author.findByIdAndDelete(req.params.authorId)
       .then(delAuthor => {
         console.log(delAuthor);
         res.json({ author: delAuthor });
@@ -33,7 +41,6 @@ module.exports = {
       .catch(err => res.json({ errors: err }));
   }
 };
-
 
 /* CRUD FOR MONGOOSE
 
