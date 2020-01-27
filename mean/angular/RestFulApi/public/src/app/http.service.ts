@@ -13,7 +13,4 @@ export class HttpService {
   getOneTask(id) {
     return this._http.get("/view/" + id);
   }
-  addTask(newtask) {
-    return this._http.post("/create/", newtask);
-  }
 }

@@ -11,7 +11,6 @@ app.use(
     extended: true
   })
 );
-
 app.use(
   session({
     secret: "keyboardkitteh",
@@ -22,17 +21,11 @@ app.use(
     }
   })
 );
-
 mongoose.connect("mongodb://localhost/tasks_db", {
   useNewUrlParser: true
 });
-
 require("./server/config/mongoose.js");
-
 require("./server/config/routes.js")(app);
-
-app.all("*", (req,res,next) => {
-  res.sendFile(path.resolve("./public/dist/public/index.html"))
-});
+// create an object that contains methods for mongoose to interface with MongoDB
 
 app.listen(8000, () => console.log("listening on port 8000"));

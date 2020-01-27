@@ -7,14 +7,11 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent implements OnInit {
-  newTask: any;
+  constructor(private _httpService: HttpService) {}
   tasks = [];
   onetask;
 
-  constructor(private _httpService: HttpService) {}
-
   ngOnInit() {
-    this.newTask = { title: "", description: "" };
     this.getTasksFromService();
   }
 
@@ -23,13 +20,6 @@ export class AppComponent implements OnInit {
     observable.subscribe(data => {
       console.log("Got our tasks!", data);
       this.tasks = data["tasks"];
-    });
-  }
-  onSubmit() {
-    let observable = this._httpService.addTask(this.newTask);
-    observable.subscribe(data => {
-      console.log("Got Data Back", data);
-      this.newTask = { title: "", description: "" };
     });
   }
 }
