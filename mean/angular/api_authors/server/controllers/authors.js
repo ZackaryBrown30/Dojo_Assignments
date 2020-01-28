@@ -17,7 +17,7 @@ module.exports = {
       .catch(err => res.json({ errors: err }));
   },
   getOneAuthor(req, res) {
-    Author.findById(req.params.authorId)
+    Author.findById(req.params.authId)
       .then(Author => {
         console.log(author);
         res.json({ author: author });
@@ -25,7 +25,7 @@ module.exports = {
       .catch(err => res.json({ errors: err }));
   },
   delete(req, res) {
-    Author.findByIdAndDelete(req.params.authorId)
+    Author.findByIdAndDelete(req.params.authId)
       .then(delAuthor => {
         console.log(delAuthor);
         res.json({ author: delAuthor });

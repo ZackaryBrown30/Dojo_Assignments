@@ -8,20 +8,22 @@ import { HttpService } from "../http.service";
   styleUrls: ["./edit-author.component.css"]
 })
 export class EditAuthorComponent implements OnInit {
-  gonnaEditIt: {name: string} = { name: ''};
+  gonnaEditIt: any;
+
   constructor(
     private _router: Router,
     private _route: ActivatedRoute,
     private _httpService: HttpService
-  ) {}
+  ) {
+    this.gonnaEditIt = { name: "" };
+  }
 
   ngOnInit() {
     this._route.params.subscribe(params => {
       console.log(params.athorId);
-      this._httpService.getOneAuthor(params.athorId);
-      .subscribe((authorObj) =>) {
-        this.gonnaEditIt = authorObj
-      }
+      this._httpService.getOneAuthor(params.authId).subscribe((authorObj: any) => {
+        this.gonnaEditIt = authorObj.author;
+      });
     });
   }
 }

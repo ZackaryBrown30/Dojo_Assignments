@@ -7,6 +7,9 @@ import { AllAuthorsComponent } from "./all-authors/all-authors.component";
 import { NewAuthorComponent } from "./new-author/new-author.component";
 import { EditAuthorComponent } from "./edit-author/edit-author.component";
 import { HttpClientModule } from "@angular/common/http";
+import { HttpService } from "./http.service";
+
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -15,8 +18,8 @@ import { HttpClientModule } from "@angular/common/http";
     NewAuthorComponent,
     EditAuthorComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

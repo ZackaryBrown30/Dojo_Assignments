@@ -7,7 +7,7 @@ import { EditAuthorComponent } from "./edit-author/edit-author.component";
 const routes: Routes = [
   { path: "new", component: NewAuthorComponent },
   {
-    path: "edit/authorId",
+    path: "edit/authId",
     component: EditAuthorComponent
   },
   {

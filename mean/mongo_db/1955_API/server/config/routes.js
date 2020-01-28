@@ -12,7 +12,4 @@ module.exports = function(app) {
 app.post('/oldies', (req, res) => {
     oldies.create(req, res);
     });
-    
-
-
 };

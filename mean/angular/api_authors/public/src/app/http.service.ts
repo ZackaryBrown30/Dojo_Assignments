@@ -11,8 +11,8 @@ export class HttpService {
   createAuthor(authorToCreate) {
     return this._http.post("/api/authors", authorToCreate);
   }
-  deleteAuthor(authorId) {
-    return this._http.delete("/api/authors/" + authorId);
+  deleteAuthor(authId) {
+    return this._http.delete("/api/authors/" + authId);
   }  
   getOneAuthor(authorId) {
     return this._http.get("/api/authors/" + authorId);
